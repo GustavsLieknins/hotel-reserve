@@ -1,0 +1,109 @@
+*
+{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body
+{
+    background-color: rgb(241, 243, 255);
+}
+
+.logreg-form
+{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logreg-wrapper
+{
+    display: flex;
+    height: max-content;
+    width: max-content;
+    padding: 20px 40px;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: rgb(231, 234, 255);
+}
+
+.logreg-input-div-label
+{
+    position: relative; 
+    height: 30px;
+}
+
+.logreg-input-div-label > label
+{
+    position: absolute;
+    left: -10px;
+    top: 0;
+}
+
+.logreg-wrapper > div
+{
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    flex-direction: column;
+}
+.logreg-title
+{
+    display: flex;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.logreg-title > h1
+{
+    font-size: 30px;
+}
+.logreg-submit-div
+{
+    display: flex;
+    text-align: center;
+    margin-top: 30px;
+}
+.logreg-submit-but-div
+{
+    display: flex;
+    justify-content: end;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.logreg-submit-div > div > button
+{
+    padding: 3px 10px;
+    font-weight: 800;
+    background-color: rgb(33, 40, 99);
+    border-radius: 5px;
+    color: white;
+}
+.logreg-submit-div > div > a
+{
+    text-decoration: underline;
+}
+
+.logreg-input-div > input
+{
+    background-color: rgb(231, 234, 255);
+    border: none;
+    height: min-content;
+    border-bottom: 2px solid black;
+    padding: 0px;
+}
+
+.logreg-input-div > input:focus
+{
+    border-color: inherit;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 2px solid black;
+}
+

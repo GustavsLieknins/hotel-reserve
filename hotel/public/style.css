@@ -30,6 +30,7 @@ body
     flex-direction: column;
     border-radius: 10px;
     background-color: rgb(231, 234, 255);
+    margin-bottom: 160px;
 }
 
 .logreg-input-div-label
@@ -107,3 +108,121 @@ body
     border-bottom: 2px solid black;
 }
 
+.nav-wrapper
+{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgb(231, 234, 255);
+}
+.nav-link-last > button
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 10px;
+    margin: auto 0;
+    font-weight: bold;
+    color: rgb(182, 0, 0);
+    transition: all 0.2s;
+}
+
+
+.nav-link-last > button
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 20px;
+    margin: auto 0;
+    font-weight: bold;
+    color: rgb(182, 0, 0);
+    transition: all 0.2s;
+}
+.nav-link-last > button:hover
+{
+    color: red;
+}
+.nav-link-last > p
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    margin: 0;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+.nav-wrapper > a
+{
+    display: flex;
+    height: 100%;
+}
+.nav-wrapper > a > div
+{
+    display: flex;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    padding: 5px 10px;
+}
+.nav-wrapper > a > div > p
+{
+    font-weight: 600;
+    padding: 5px 10px;
+}
+.nav-wrapper > a > div > p:active
+{
+    background-color: rgb(83, 83, 255);
+    border-radius: 5px;
+    color: white;
+}
+
+.nav-wrapper > a > div > p:hover
+{
+    color: rgb(83, 83, 255);
+}
+
+.nav-link-selected
+{
+    background-color: rgb(83, 83, 255);
+    border-radius: 5px;
+    color: white;
+}
+.nav-link-selected:hover
+{
+    color: whitesmoke !important;
+}
+.nav-link-user
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.nav-link-img
+{
+    height: 25px;
+}
+
+.user-icon-noselected
+{
+    content:url(/img/user.svg);
+}
+.user-username
+{
+    transition: all 0.1s;
+}
+
+.user-icon-selected
+{
+    content:url(/img/user-selected.svg);
+}
+
+.nav-link:hover > .user-icon-noselected
+{
+    
+    content:url(/img/user.svg);
+}

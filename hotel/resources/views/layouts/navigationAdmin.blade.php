@@ -5,14 +5,6 @@
                 <p class="{{ request()->routeIs('/') ? 'nav-link-selected' : '' }}">Home</p>
             </div>
         </a>
-        <a href="profile">
-            <div class="nav-link">
-                <p class="nav-link-user {{ request()->routeIs('profile.edit') ? 'nav-link-selected' : '' }}">
-                <img alt="" class="nav-link-img {{ request()->routeIs('profile.edit') ? 'user-icon-selected' : 'user-icon-noselected' }}">
-                {{ Str::ucfirst(auth()->user()->username) }}
-            </p>
-            </div>
-        </a>
         <a href="reservations">
             <div class="nav-link">
                 <p class="nav-link-user {{ request()->routeIs('reservations') ? 'nav-link-selected' : '' }}">
@@ -25,13 +17,11 @@
         <a href="rooms">
             <div class="nav-link">
                 <p class="nav-link-user {{ request()->routeIs('rooms') ? 'nav-link-selected' : '' }}">
-                <img alt="" class="nav-link-img {{ request()->routeIs('profile.edit') ? 'room-icon-selected' : 'room-icon-noselected' }}">
+                <img alt="" class="nav-link-img {{ request()->routeIs('rooms') ? 'room-icon-selected' : 'room-icon-noselected' }}">
                 Rooms
             </p>
             </div>
         </a>
-
-
         @auth
         <form method="POST" action="{{ route('logout') }}">
             @csrf
@@ -47,5 +37,15 @@
             </div>
         </a>
         @endguest
+        @auth
+        <a href="profile">
+            <div class="nav-link">
+                <p class="nav-link-user {{ request()->routeIs('profile.edit') ? 'nav-link-selected' : '' }}">
+                <img alt="" class="nav-link-img {{ request()->routeIs('profile.edit') ? 'settings-icon-selected' : 'settings-icon-noselected' }}">
+                Settings
+            </p>
+            </div>
+        </a>
+        @endauth
     </div>
 </nav>

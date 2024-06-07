@@ -11,14 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rooms', function (Blueprint $table) {
+
+        Schema::create('status', function (Blueprint $table) {
+            $table->id();
+            $table->string('status');
+            $table->timestamps();
+        });
+
+
+        Schema::create('userRooms', function (Blueprint $table) {
             $table->id();
             // $table->integer('room_num')->nullable()->unique();
-            $table->string('name');
-            $table->integer('price');
-            $table->string('description');
-            $table->string('img_url');
-            $table->string('availability');
+            $table->string('date');
+            $table->foreignId('status_id')->constrained('status');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('room_id')->constrained('rooms');
             $table->timestamps();
         });
     }

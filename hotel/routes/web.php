@@ -17,14 +17,15 @@ Route::get('/', function () {
 })->name("/");
 
 Route::middleware(['auth', 'SuperAdmin'])->group(function () {
-    Route::get('/superadmin', [SuperAdminController::class, 'index']);
-    Route::get('/superadmin/findUser', [SuperAdminController::class, 'findUser']);
+    Route::get('/superadmin', [SuperAdminController::class, 'index'])->name('superadmin');
+    Route::get('/superadmin/findUser', [SuperAdminController::class, 'findUser'])->name('findUser');
     Route::get('/superadmin/roleChange', [SuperAdminController::class, 'roleChange']);
     Route::delete('/superadmin/userDelete', [SuperAdminController::class, 'userDelete']);
 });
 
 Route::middleware(['auth', 'Admin'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/rooms', [AdminController::class, 'rooms'])->name('rooms');
 });
 
 Route::middleware('auth')->group(function () {

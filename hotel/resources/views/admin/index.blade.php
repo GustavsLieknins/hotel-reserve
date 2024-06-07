@@ -1,3 +1,7 @@
 <x-admin-layout>
-    <h1>Hey</h1>
+    <div class="wrapper-admin">
+        <div class="admin-index-div">
+            <p>Hello Admin user</p>
+        </div>
+    </div>
 </x-admin-layout>

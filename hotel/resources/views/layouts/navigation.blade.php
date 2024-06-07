@@ -6,14 +6,46 @@
             </div>
         </a>
         @auth
-        <a href="profile">
+        <a href="account">
             <div class="nav-link">
-                <p class="nav-link-user {{ request()->routeIs('profile.edit') ? 'nav-link-selected' : '' }}">
-                <img alt="" class="nav-link-img {{ request()->routeIs('profile.edit') ? 'user-icon-selected' : 'user-icon-noselected' }}">
+                <p class="nav-link-user {{ request()->routeIs('account') ? 'nav-link-selected' : '' }}">
+                <img alt="" class="nav-link-img {{ request()->routeIs('account') ? 'user-icon-selected' : 'user-icon-noselected' }}">
                 {{ Str::ucfirst(auth()->user()->username) }}
             </p>
             </div>
         </a>
+        @endauth
+        @auth
+        <a href="profile">
+            <div class="nav-link">
+                <p class="nav-link-user {{ request()->routeIs('profile.edit') ? 'nav-link-selected' : '' }}">
+                <img alt="" class="nav-link-img {{ request()->routeIs('profile.edit') ? 'settings-icon-selected' : 'settings-icon-noselected' }}">
+                Settings
+            </p>
+            </div>
+        </a>
+        @endauth
+        @auth
+            @if(auth()->user()->role == 1 || auth()->user()->role == 2)
+                <a href="{{ route('admin') }}">
+                    <div class="nav-link">
+                        <p class="nav-link-user {{ request()->routeIs('admin') ? 'nav-link-selected' : '' }}">
+                            Admin
+                        </p>
+                    </div>
+                </a>
+            @endif
+        @endauth
+        @auth
+            @if(auth()->user()->role == 2 )
+                <a href="{{ route('superadmin') }}">
+                    <div class="nav-link">
+                        <p class="nav-link-user {{ request()->routeIs('superadmin') || request()->routeIs('superadmin.findUser') ? 'nav-link-selected' : '' }}">
+                            SuperAdmin
+                        </p>
+                    </div>
+                </a>
+            @endif
         @endauth
         @auth
         <form method="POST" action="{{ route('logout') }}">

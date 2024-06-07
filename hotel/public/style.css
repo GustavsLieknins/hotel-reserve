@@ -235,6 +235,28 @@ body
 {
     content:url(/img/room-selected.svg);
 }
+
+.settings-icon-selected
+{
+    content:url(/img/settings-selected.svg);
+}
+
+.nav-link:hover > .settings-icon-noselected
+{
+    
+    content:url(/img/settings.svg);
+}
+.settings-icon-noselected
+{
+    content:url(/img/settings.svg);
+    margin-right: 3px;
+}
+
+.settings-icon-selected
+{
+    content:url(/img/settings-selected.svg);
+    margin-right: 3px;
+}
 .superadmin-wrapper
 {
     display: flex;
@@ -242,4 +264,52 @@ body
     width: 100%;
     height: 100%;
     align-items: center;
+}
+
+.wrapper-admin
+{
+    display: flex;
+    min-width: 100vw;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.admin-index-div
+{
+    display: flex;
+    margin-bottom: 200px;
+    padding: 50px 100px;
+    background-color: rgb(231, 234, 255);
+    border-radius: 10px;
+    font-size: 30px;
+}
+.admin-index-div > p
+{
+    font-weight: bold;
+}
+
+
+.wrapper
+{
+    display: flex;
+    min-width: 100vw;
+    min-height: 100vh;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.admin-header
+{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.admin-header > a
+{
+    color: green;
+    text-decoration: underline;
+    font-weight: bold;
 }

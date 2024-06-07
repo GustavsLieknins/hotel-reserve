@@ -221,8 +221,25 @@ body
     content:url(/img/user-selected.svg);
 }
 
-.nav-link:hover > .user-icon-noselected
+.nav-link:hover > .room-icon-noselected
 {
     
-    content:url(/img/user.svg);
+    content:url(/img/room.svg);
+}
+.room-icon-noselected
+{
+    content:url(/img/room.svg);
+}
+
+.room-icon-selected
+{
+    content:url(/img/room-selected.svg);
+}
+.superadmin-wrapper
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
 }

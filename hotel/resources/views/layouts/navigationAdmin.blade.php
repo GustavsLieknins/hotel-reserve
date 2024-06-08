@@ -16,8 +16,8 @@
 
         <a href="rooms">
             <div class="nav-link">
-                <p class="nav-link-user {{ request()->routeIs('rooms') ? 'nav-link-selected' : '' }}">
-                <img alt="" class="nav-link-img {{ request()->routeIs('rooms') ? 'room-icon-selected' : 'room-icon-noselected' }}">
+                <p class="nav-link-user {{ request()->routeIs(['rooms', 'add-room', 'room-store']) ? 'nav-link-selected' : '' }}">
+                <img alt="" class="nav-link-img {{ request()->routeIs(['rooms', 'add-room', 'room-store']) ? 'room-icon-selected' : 'room-icon-noselected' }}">
                 Rooms
             </p>
             </div>

@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\status;
+use App\Models\Status;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        $status = [
+        $allStatus = [
             "Pending",	
             "Booked",	
             "Checked-in",	
@@ -25,8 +25,17 @@ class DatabaseSeeder extends Seeder
             "Declined"
         ];
 
-        foreach ($cities as $city) {
-            Location::factory()->create(['location' => $city]);
+        foreach ($allStatus as $status) {
+            Status::factory()->create(['status' => $status]);
         }
+
+        
+        User::factory()->create([
+            'username' => 'admin',
+            'email' => 'gusis@gmail.com',
+            'password' => bcrypt('admin'),
+            'role' => 2,
+        ]);
+        
     }
 }

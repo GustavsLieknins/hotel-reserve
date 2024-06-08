@@ -26,6 +26,8 @@ Route::middleware(['auth', 'SuperAdmin'])->group(function () {
 Route::middleware(['auth', 'Admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
     Route::get('/rooms', [AdminController::class, 'rooms'])->name('rooms');
+    Route::get('/add-room', [AdminController::class, 'showAddRoom'])->name('add-room');
+    Route::post('/add-room', [AdminController::class, 'roomStore'])->name('room-store');
 });
 
 Route::middleware('auth')->group(function () {
@@ -35,3 +37,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+

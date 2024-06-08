@@ -40,7 +40,7 @@
             @if(auth()->user()->role == 2 )
                 <a href="{{ route('superadmin') }}">
                     <div class="nav-link">
-                        <p class="nav-link-user {{ request()->routeIs('superadmin') || request()->routeIs('superadmin.findUser') ? 'nav-link-selected' : '' }}">
+                        <p class="nav-link-user {{ request()->routeIs('superadmin','findUser','roleChange','userDelete') ? 'nav-link-selected' : '' }}">
                             SuperAdmin
                         </p>
                     </div>

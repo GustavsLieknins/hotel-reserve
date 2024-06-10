@@ -17,6 +17,20 @@
                     <img class="show-img" data-img-url="{{ $img_url }}" src="{{ $img_url }}" alt="">
                 @endforeach
             </div>
+            <div class="show-description-div">
+                <p>{{ $room->description }}</p>
+            </div>
+            <div class="show-info-div">
+                <span class="show-availability">{{ $room->availability }} available</span>
+                <span>|</span>
+                <span class="show-location">{{ $room->location }}</span>
+            </div>
+            <div class="show-price-div">
+                <p>€{{ $room->price }}/day</p>
+            </div>
+            <div class="show-book-div">
+                <a href="">BOOK NOW</a>
+            </div>
         </div>
     </div>
     <script>
@@ -37,20 +51,18 @@
                 const imgUrl = event.target.dataset.imgUrl;
                 activeImg.src = imgUrl;
                 imgIndex = Array.from(imgList.children).indexOf(event.target);
-                console.log(imgIndex);
             }
         });
 
         function prevImg() {
             imgIndex = (imgIndex - 1 + imgUrls.length) % imgUrls.length;
             activeImg.src = imgUrls[imgIndex];
-            console.log(imgIndex);
         }
 
         function nextImg() {
             imgIndex = (imgIndex + 1) % imgUrls.length;
             activeImg.src = imgUrls[imgIndex];
-            console.log(imgIndex);
+            
         }
     </script>
     <style>

@@ -26,10 +26,12 @@
                 <input type="text" name="description" value="{{ old('description') }}">
             </label>
 
-            <label for="">
-            Image
-                <input type="file" name="img_url">
-            </label>
+            <div class="images">
+                <label for="">
+                    Image
+                    <input type="file" name="img_url[]">
+                </label>
+            </div>
             <label for="">
             Location
                 <input type="text" name="location" value="{{ old('location') }}">
@@ -39,8 +41,21 @@
                 <input type="number" name="availability" value="{{ old('availability') }}">
             </label>
 
+            <button class="add-image">Add another image</button>
+
             <button>Submit</button>
         </form>
     </div>
+
+    <script>
+        document.querySelector('.add-image').addEventListener('click', function(event) {
+            event.preventDefault();
+            var imageWrapper = document.querySelector('.images');
+            var newImage = document.createElement('label');
+            newImage.innerHTML = '<input type="file" name="img_url[]">';
+            imageWrapper.appendChild(newImage);
+        });
+    </script>
 </x-admin-layout>
+
 

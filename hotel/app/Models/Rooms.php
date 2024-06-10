@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Rooms extends Model
 {
     use HasFactory;
+
+    protected $appends = ['img_url'];
+
+    public function img_url()
+    {
+        return asset('storage/rooms/' . $this->image);
+    }
 }
+

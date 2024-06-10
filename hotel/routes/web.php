@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\admin;
@@ -12,9 +13,9 @@ Route::get('/larthing', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('index');
-})->name("/");
+
+Route::get('/', [IndexController::class, 'index'])->name('/');
+Route::get("/room/{id}", [IndexController::class, "show"]);
 
 Route::middleware(['auth', 'SuperAdmin'])->group(function () {
     Route::get('/superadmin', [SuperAdminController::class, 'index'])->name('superadmin');

@@ -29,13 +29,16 @@ Route::middleware(['auth', 'Admin'])->group(function () {
     Route::get('/rooms', [AdminController::class, 'rooms'])->name('rooms');
     Route::get('/add-room', [AdminController::class, 'showAddRoom'])->name('add-room');
     Route::post('/add-room', [AdminController::class, 'roomStore'])->name('room-store');
+    Route::get('/reservations', [AdminController::class, 'reservations'])->name('reservations');
+    Route::post('/reservation-status/{id}', [AdminController::class, 'changeReservationStatus'])->name('reservation-status');
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/book/{id}', [IndexController::class, 'book'])->name('book');
+    Route::post('/check-date', [IndexController::class, 'checkDate'])->name('check-date');
 });
-
 require __DIR__.'/auth.php';
-

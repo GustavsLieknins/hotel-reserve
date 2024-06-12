@@ -8,7 +8,7 @@
         <a href="reservations">
             <div class="nav-link">
                 <p class="nav-link-user {{ request()->routeIs('reservations') ? 'nav-link-selected' : '' }}">
-                <img alt="" class="nav-link-img {{ request()->routeIs('profile.edit') ? 'user-icon-selected' : 'user-icon-noselected' }}">
+                <img alt="" class="nav-link-img {{ request()->routeIs('reservations') ? 'user-icon-selected' : 'user-icon-noselected' }}">
                 Reservations
             </p>
             </div>

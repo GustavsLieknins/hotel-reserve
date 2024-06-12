@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rooms;
+use App\Models\UserRoom;
 
 class AdminController extends Controller
 {
@@ -12,7 +13,8 @@ class AdminController extends Controller
     }
 
     public function rooms() {
-        return view('admin.rooms');
+        $rooms = Rooms::all();
+        return view("admin.rooms", ["rooms" => $rooms]);
     }
 
     public function showAddRoom() {
@@ -35,6 +37,7 @@ class AdminController extends Controller
         $listings->price = $request->price;
         $listings->description = $request->description;
         $listings->availability = $request->availability;
+        $listings->max_availability = $request->availability;
         $listings->location = $request->location;
         $listings->created_by = auth()->user()->id;
 
@@ -52,6 +55,28 @@ class AdminController extends Controller
 
         return back();
     }
+
+    
+    public function reservations() {
+        $reservations = UserRoom::all();
+        $rooms = Rooms::all();
+        return view('admin.reservations', ['reservations' => $reservations, 'rooms' => $rooms]);
+    }
+
+
+    public function changeReservationStatus(Request $request, $id) {
+        $reservation = UserRoom::find($id);
+        $reservation->status_id = $request->status_id;
+        if($reservation->status_id == 6){
+            Rooms::find($reservation->room_id)->increment('availability');
+            $reservation->delete();
+        }else{
+            $reservation->save();
+        }
+
+        return back();
+    }
+
 }
 
 

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('img_url');
             $table->string('location');
             $table->string('availability');
+            $table->string('max_availability');
             $table->foreignId('created_by')->constrained('users');
             $table->timestamps();
         });

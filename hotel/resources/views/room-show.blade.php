@@ -29,7 +29,7 @@
                 <p>€{{ $room->price }}/day</p>
             </div>
             <div class="show-book-div">
-                <a href="">BOOK NOW</a>
+                <a href="{{ route('book', $room->id) }}">BOOK NOW</a>
             </div>
         </div>
     </div>

@@ -18,11 +18,11 @@ return new class extends Migration
             $table->timestamps();
         });
 
-
-        Schema::create('userRooms', function (Blueprint $table) {
+        Schema::create('user_rooms', function (Blueprint $table) {
             $table->id();
-            // $table->integer('room_num')->nullable()->unique();
-            $table->string('date');
+            $table->string('room_num');
+            $table->string('checkin');
+            $table->string('checkout');
             $table->foreignId('status_id')->constrained('status');
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('room_id')->constrained('rooms');
@@ -35,6 +35,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('user_rooms');
+        Schema::dropIfExists('status');
     }
 };
+

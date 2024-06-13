@@ -756,5 +756,19 @@ body
     {
         width: 100vw;
     }
+
+    .nav-wrapper > a > div > p
+    {
+        padding: 3px 3px;
+        font-size: 9px;
+    }
+    .nav-wrapper
+    {
+        height: 40px;
+    }
+    .nav-link-img
+    {
+        height: 15px;
+    }
     
 }

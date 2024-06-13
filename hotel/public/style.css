@@ -719,6 +719,85 @@ body
     border-bottom: 2px solid red !important;
 }
 
+
+.page-switch-wrapper
+{
+    position: absolute;
+    bottom: 0;
+}
+.page-switch-div > nav > div + div
+{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.page-switch-div > nav > div + div > div
+{
+    margin-top: 5px;
+}
+
+.page-switch-div > nav > .hidden > div > .relative > span > span
+{
+    background-color: white;
+}
+.page-switch-div > nav > .hidden > div > .relative > a
+{
+    background-color: white;
+}
+.flex-1 > span
+{
+    display: none !important;
+}
+
+.flex-1 > a
+{
+    display: none !important;
+}
+
+
+.page-switch-wrapper
+{
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.search-wrapper
+{
+    width: 100vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.filter-input
+{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-input
+{
+    border: 0;
+    margin-left: 10px;
+    border-radius: 4px !important;
+}
+
+.search-button
+{
+    font-weight: bold;
+    background-color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+
 @media (max-width: 600px) {
     .wrapper
     {
@@ -764,11 +843,67 @@ body
     }
     .nav-wrapper
     {
-        height: 40px;
+        height: 50px;
     }
     .nav-link-img
     {
         height: 15px;
     }
-    
+    .nav-wrapper > a > div > p 
+    {
+        font-weight: 400;
+    }
+    .nav-link-last > button
+    {
+        display: none;
+    }
+    .card-a
+    {
+        width: 220px;
+    }
+    .admin-index-div
+    {
+        padding: 25px 50px;
+    }
+    .admin-index-div > p
+    {
+        font-size: 20px;
+    }
+    .card-a-book
+    {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+    .card-book
+    {
+        margin-top: 10px;
+        border: 0;
+    }
+
+    .search-input
+    {
+        width: 100px;
+    }
+
+    .search-input-only
+    {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+    }
+    .search-button-only
+    {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 120px;
+    }
+
+    .search-wrapper
+    {
+        height: 60px;
+    }
+
 }

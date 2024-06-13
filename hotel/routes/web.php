@@ -45,5 +45,21 @@ Route::middleware('auth')->group(function () {
 
     
     Route::post('/cancel/{id}', [IndexController::class, 'cancel'])->name('cancel');
+
+    
+    // Route::get('/search', function(Illuminate\Http\Request $request){
+    //     $query = $request->query('search');
+    //     $rooms = Rooms::where('name', 'like', "%$query%")
+    //         ->orWhere('description', 'like', "%$query%")
+    //         ->get();
+    //     return view('index', ['rooms' => $rooms]);
+    // })->name('search');
+
+    
+    Route::get('/search', [IndexController::class, 'search'])->name('search');
+
+    
+    Route::get('/sort', [IndexController::class, 'sort'])->name('sort');
+
 });
 require __DIR__.'/auth.php';

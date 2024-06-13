@@ -12,7 +12,8 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $rooms = Rooms::all();
+        // $rooms = Rooms::all();
+        $rooms = Rooms::paginate(1);
         return view("index", ["rooms" => $rooms]);
     }
     public function show($id)
@@ -95,6 +96,37 @@ class IndexController extends Controller
         return back()->with('success', 'Reservation cancelled');
     }
 
+    public function search(Request $request) {
+        $query = $request->input('search');
+        $rooms = Rooms::where('name', 'like', "%$query%")
+            ->orWhere('description', 'like', "%$query%")
+            ->paginate(1);
+
+        
+        return view('index', ['rooms' => $rooms]);
+    }
+
+    
+    public function sort(Request $request) {
+        $sort_by = $request->input('sort_by');
+
+        if ($sort_by == 'availability_low') {
+            $rooms = Rooms::orderBy('availability', 'asc')->paginate(1);
+        } elseif ($sort_by == 'availability_high') {
+            $rooms = Rooms::orderBy('availability', 'desc')->paginate(1);
+        } elseif ($sort_by == 'price_low') {
+            $rooms = Rooms::orderBy('price', 'asc')->paginate(1);
+        } elseif ($sort_by == 'price_high') {
+            $rooms = Rooms::orderBy('price', 'desc')->paginate(1);
+        } else {
+            $rooms = Rooms::paginate(1);
+        }
+
+        return view('index', ['rooms' => $rooms]);
+    }
+
+
 }
 
 
+// Rooms::latest()->paginate(1);

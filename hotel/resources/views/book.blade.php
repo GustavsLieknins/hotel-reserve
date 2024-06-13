@@ -1,6 +1,6 @@
 <x-app-layout>
-    <div class="wrapper">
-        <a href="/room/{{$room->id}}" class="card-a-book">
+    <div class="wrapper card-a-book">
+        <a href="/room/{{$room->id}}" class="card-a card-a-book-div">
             <div class="card-book">
                 <div class="card-img-book">
                     @php
@@ -18,19 +18,20 @@
                         <span>{{ $room->availability }} left</span>
                     </div>
                     <div class="card-price">
-                        <p>€{{ $room->price }}/day</p>
+                        <span>€{{ $room->price }}/day</span>
                     </div>
                 </div>
             </div>
-            <div class="card-book-inputs">
+        </a>
+        <div class="card-book-inputs">
                 <div class="card-book-input">
-                <form action="{{ route('check-date') }}" method="post">
+                <form action="{{ route('check-date') }}" method="post" class="book-form">
                     @csrf
-                    <input type="hidden" name="room_id" value="{{ $room->id }}">
+                    <input type="hidden" name="room_id" value="{{ $room->id }}" >
                     <label for="checkin">Check-in:</label>
-                    <input type="date" id="checkin" name="checkin" required>
+                    <input type="date" id="checkin" name="checkin" value="{{ old('checkin') }}" required>
                     <label for="checkout">Check-out:</label>
-                    <input type="date" id="checkout" name="checkout" required>
+                    <input type="date" id="checkout" name="checkout" value="{{ old('checkout') }}" required>
                     <div class="show-book-div">
                         <button type="submit">BOOK</button>
                     </div>
@@ -42,7 +43,10 @@
                     @endif
                 </div>
             </div>
-        </a>
+        @if(session('error'))
+            <div class="alert alert-danger">{{ session('error') }}</div>
+        @endif
     </div>
 </x-app-layout>
+
 

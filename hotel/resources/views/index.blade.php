@@ -19,7 +19,7 @@
                         <span>{{ $room->availability }} left</span>
                     </div>
                     <div class="card-price">
-                        <p>€{{ $room->price }}/day</p>
+                        <span>€{{ $room->price }}/day</span>
                     </div>
                 </div>
             </div>

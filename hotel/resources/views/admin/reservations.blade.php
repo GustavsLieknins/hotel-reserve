@@ -28,6 +28,8 @@
                                     <option value="1" {{ $reservation->status_id == 1 ? 'selected' : '' }}>Select status</option>
                                     <option value="2" {{ $reservation->status_id == 2 ? 'selected' : '' }}>Booked</option>
                                     <option value="6" {{ $reservation->status_id == 6 ? 'selected' : '' }}>Declined</option>
+                                    <option value="3" {{ $reservation->status_id == 3 ? 'selected' : '' }}>Checked in</option>
+                                    <option value="4" {{ $reservation->status_id == 4 ? 'selected' : '' }}>Checked out</option>
                                 </select>
                             </form>
                         </div>

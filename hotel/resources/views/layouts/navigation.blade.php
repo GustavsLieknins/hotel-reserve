@@ -6,7 +6,7 @@
             </div>
         </a>
         @auth
-        <a href="account">
+        <a href="{{ route('account') }}">
             <div class="nav-link">
                 <p class="nav-link-user {{ request()->routeIs('account') ? 'nav-link-selected' : '' }}">
                 <img alt="" class="nav-link-img {{ request()->routeIs('account') ? 'user-icon-selected' : 'user-icon-noselected' }}">

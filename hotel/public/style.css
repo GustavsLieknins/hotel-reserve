@@ -329,9 +329,16 @@ body
     border-radius: 4px;
     margin: 10px;
 }
+.card-a-book-div
+{
+    margin: 0px !important;
+    margin-right: 10px !important;
+    flex-direction: row !important;
+}
 .card
 {
     display: flex;
+    position: relative;
     flex-direction: column;
     width: 100%;
     height: 100%;
@@ -400,7 +407,7 @@ body
     border-radius: 4px;
     margin-bottom: 2px;
 }
-.card-price > p
+.card-price > span
 {
     font-weight: bold;
     font-size: 25px;
@@ -488,7 +495,7 @@ body
     display: flex;
     justify-content: center;
     width: 55vw;
-    padding-top: 5px;
+    padding-top: 15px;
 }
 .show-info-div > span
 {
@@ -508,7 +515,6 @@ body
     display: flex;
     justify-content: center;
     width: 55vw;
-    padding-top: 5px;
 }
 
 .show-price-div > p
@@ -523,6 +529,7 @@ body
     justify-content: center;
     width: 55vw;
     padding-top: 5px;
+    text-align: center;
 }
 .show-book-div > a
 {
@@ -566,7 +573,7 @@ body
 {
     display: flex;
     flex-direction: column;
-    width: 220px;
+    width: 100%;
     height: 100%;
     background-color: white;
     border-right: 2px solid black;
@@ -578,14 +585,14 @@ body
 {
     display: flex;
     position: relative;
-    width: 100vw;
-    height: 300px;
+    min-width: 95vw !important;
+    height: max-content;
     background-color: white;
     align-items: start;
     justify-content: start;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-top: 40px;
-    border-radius: 4px;
+    border-radius: 3px;
     margin: 10px;
 }
 
@@ -626,6 +633,90 @@ body
     background-color: transparent;
     border: none;
     outline: none;
+}
+.card-room-num-span
+{
+    font-weight: bolder;
+    color: black;
+}
+.card-book-inputs
+{
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 330px);
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-form
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.p-checkin
+{
+    margin-top: 10px;
+    border-bottom: 2px solid black;
+}
+.p-checkin p
+{
+    margin-bottom: 10px;
+}
+.card-account
+{
+    padding-bottom: 10px;
+}
+
+.card-cancel
+{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+.card-cancel > form > button
+{
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.logreg-errors
+{
+    margin-top: 10px;
+    margin-right: 10px;
+    position: relative;
+    width: 99%;
+    height: max-content;
+}
+
+.is-invalid
+{
+    border-bottom: 2px solid red !important;
 }
 
 @media (max-width: 600px) {

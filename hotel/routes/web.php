@@ -31,6 +31,7 @@ Route::middleware(['auth', 'Admin'])->group(function () {
     Route::post('/add-room', [AdminController::class, 'roomStore'])->name('room-store');
     Route::get('/reservations', [AdminController::class, 'reservations'])->name('reservations');
     Route::post('/reservation-status/{id}', [AdminController::class, 'changeReservationStatus'])->name('reservation-status');
+
 });
 
 Route::middleware('auth')->group(function () {
@@ -38,7 +39,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/account', [IndexController::class, 'account'])->name('account');
     Route::get('/book/{id}', [IndexController::class, 'book'])->name('book');
     Route::post('/check-date', [IndexController::class, 'checkDate'])->name('check-date');
+
+    
+    Route::post('/cancel/{id}', [IndexController::class, 'cancel'])->name('cancel');
 });
 require __DIR__.'/auth.php';

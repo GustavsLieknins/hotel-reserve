@@ -21,8 +21,17 @@
                             <span>|</span>
                             <span>{{ $room->availability }} left</span>
                         </div>
-                        <div class="card-price">
-                            <p>€{{ $room->price }}/day</p>
+                        <div class="card-price card-actions-price">
+                            <form action="/admin/rooms/{{$room->id}}/edit" method="get">
+                                @csrf
+                                <button type="submit" class="edit-button">Edit</button>
+                            </form>
+                            <span>€{{ $room->price }}/day</span>
+                            <form action="/admin/rooms/{{$room->id}}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="delete-button">Delete</button>
+                            </form>
                         </div>
                     </div>
                 </div>

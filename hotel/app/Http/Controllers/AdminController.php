@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Rooms;
 use App\Models\UserRoom;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
@@ -25,10 +26,10 @@ class AdminController extends Controller
     {
         $request->validate([
             "name" => ["required", "min:3", "max:50"],
-            "price" => ["required", "numeric"],
+            "price" => ["required", "numeric", "min:1"],
             "description" => ["required", "min:3", "max:2024"],
             "img_url.*" => ["nullable", "image", "max:10240"],
-            "availability" => ["required", "numeric"],
+            "availability" => ["required", "numeric", "min:1"],
             "location" => ["required", "min:3", "max:50"],
         ]);
 
@@ -77,6 +78,49 @@ class AdminController extends Controller
         return back();
     }
 
+
+    public function roomDelete($id) {
+        $userRooms = UserRoom::where('room_id', $id)->get();
+
+        foreach ($userRooms as $userRoom) {
+            $userRoom->delete();
+        }
+
+        $room = Rooms::find($id);
+        if ($room) {
+            $room->delete();
+        }
+
+        return back();
+    }
+
+    
+    public function edit($id) {
+        $room = Rooms::find($id);
+        return view('admin.edit', ['room' => $room]);
+    }
+    
+    public function update(Request $request, $id) {
+        $rules = [
+            'name' => 'required|string|max:255',
+            'price' => 'required|integer|min:1',
+            'description' => 'required|string',
+            'location' => 'required|string',
+            'img_url.*' => 'nullable|image|max:10240',
+            'availability' => 'required|integer|min:1',
+        ];
+        $request->validate($rules);
+        $room = Rooms::findOrFail($id);
+        $room->update($request->except('_token'));
+        return redirect('/rooms')->with('success', 'Room updated successfully.');
+    }
+    
+    
+
+
+
+
 }
+
 
 

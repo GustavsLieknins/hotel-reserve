@@ -11,6 +11,17 @@ class Rooms extends Model
 
     protected $appends = ['img_url'];
 
+    protected $fillable = [
+        'name',
+        'price',
+        'description',
+        'img_url',
+        'location',
+        'availability',
+        'max_availability',
+        'created_by',
+    ];
+
     public function img_url()
     {
         return asset('storage/rooms/' . $this->image);

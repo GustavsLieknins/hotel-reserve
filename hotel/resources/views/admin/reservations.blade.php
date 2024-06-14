@@ -1,5 +1,10 @@
 <x-admin-layout>
     <div class="wrapper">
+        @if(count($reservations) == 0)
+            <div class="admin-header">
+                <p>No reservations</p>
+            </div>
+        @endif
         @foreach($reservations as $reservation)
             <div class="card-a card-a-reserve">
                 <div class="card">

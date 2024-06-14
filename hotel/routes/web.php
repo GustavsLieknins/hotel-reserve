@@ -32,6 +32,13 @@ Route::middleware(['auth', 'Admin'])->group(function () {
     Route::get('/reservations', [AdminController::class, 'reservations'])->name('reservations');
     Route::post('/reservation-status/{id}', [AdminController::class, 'changeReservationStatus'])->name('reservation-status');
 
+    Route::delete('/admin/rooms/{id}', [AdminController::class, 'roomDelete'])->name('room-delete');
+
+    
+    Route::get('/admin/rooms/{id}/edit', [AdminController::class, 'edit'])->name('room-edit');
+    Route::post('/admin/rooms/{id}', [AdminController::class, 'update'])->name('room-update');
+
+
 });
 
 Route::middleware('auth')->group(function () {

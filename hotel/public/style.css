@@ -797,7 +797,50 @@ body
     border-radius: 4px;
 }
 
+.form-add
+{
+    margin-top: 30px;
+    justify-content: start;
+}
+.card-actions-price
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
 
+.card-actions-price > span
+{
+    font-weight: 400;
+    font-size: 20px !important;
+}
+
+.edit-button
+{
+    color: blue;
+}
+
+.delete-button
+{
+    color: red;
+}
+/* .card-price
+{
+    display: flex;
+    background-color: white;
+    padding: 0px 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+    border-radius: 4px;
+    margin-bottom: 2px;
+}
+.card-price > span
+{
+    font-weight: bold;
+    font-size: 25px;
+} */
 @media (max-width: 600px) {
     .wrapper
     {
@@ -885,7 +928,6 @@ body
     {
         width: 100px;
     }
-
     .search-input-only
     {
         position: absolute;
@@ -900,10 +942,14 @@ body
         transform: translateY(-50%);
         left: 120px;
     }
-
     .search-wrapper
     {
         height: 60px;
+    }
+
+    .logreg-wrapper
+    {
+        width: 310px;
     }
 
 }
